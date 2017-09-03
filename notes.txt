@@ -1,0 +1,16 @@
+sudo sed -i s/^#baseurl/baseurl/g /etc/yum.repos.d/CentOS-Base.repo
+sudo sed -i s/^mirror/#mirror/g /etc/yum.repos.d/CentOS-Base.repo
+sudo sed -i s+mirror.centos.org+192.168.1.199/pub+g /etc/yum.repos.d/CentOS-Base.repo
+sudo curl -OL http://download.virtualbox.org/virtualbox/5.1.26/VBoxGuestAdditions_5.1.26.iso
+sudo mkdir -p /media/VBoxGuestAdditions
+sudo mount -o loop,ro VBoxGuestAdditions_5.1.26.iso /media/VBoxGuestAdditions
+sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
+sudo rm VBoxGuestAdditions_5.1.26.iso
+sudo umount /media/VBoxGuestAdditions
+sudo rmdir /media/VBoxGuestAdditions
+sudo yum clean all
+sudo dd if=/dev/zero of=/EMPTY bs=1M
+sudo rm -f /EMPTY
+cat /dev/null > ~/.bash_history && history -c && exit
+----
+vagrant package --output kilroy396-centos7.box
