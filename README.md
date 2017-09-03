@@ -8,6 +8,7 @@
 
 3. run the following commands; substituting the latest 5.1 virutal box iso
 
+```
 sudo sed -i s/^#baseurl/baseurl/g /etc/yum.repos.d/CentOS-Base.repo
 sudo sed -i s/^mirror/#mirror/g /etc/yum.repos.d/CentOS-Base.repo
 sudo sed -i s+mirror.centos.org+192.168.1.199/pub+g /etc/yum.repos.d/CentOS-Base.repo
@@ -22,6 +23,7 @@ sudo yum clean all
 sudo dd if=/dev/zero of=/EMPTY bs=1M
 sudo rm -f /EMPTY
 cat /dev/null > ~/.bash_history && history -c && exit
+```
 
 4. run the following vagrant command to package the running machine
 
