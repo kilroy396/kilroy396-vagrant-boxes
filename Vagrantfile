@@ -8,7 +8,10 @@ Vagrant.configure("2") do |config|
      sed -i s/^#baseurl/baseurl/g /etc/yum.repos.d/CentOS-Base.repo
      sed -i s/^mirror/#mirror/g /etc/yum.repos.d/CentOS-Base.repo
      sed -i s+mirror.centos.org+192.168.1.199/pub+g /etc/yum.repos.d/CentOS-Base.repo
-     yum install gcc kernel-devel kernel-headers dkms make bzip2 perl -y
+     yum install gcc kernel-devel kernel-headers dkms make bzip2 perl epel-release -y
+     sed -i s/^#baseurl/baseurl/g /etc/yum.repos.d/epel.repo
+     sed -i s/^mirror/#mirror/g /etc/yum.repos.d/epel.repo
+     sed -i s+download.fedora.org+192.168.1.199/pub+g /etc/yum.repos.d/epel.repo
      curl -OL http://download.virtualbox.org/virtualbox/5.1.26/VBoxGuestAdditions_5.1.26.iso
      mkdir -p /media/VBoxGuestAdditions
      mount -o loop,ro VBoxGuestAdditions_5.1.26.iso /media/VBoxGuestAdditions
