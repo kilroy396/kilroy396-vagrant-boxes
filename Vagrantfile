@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
      sed -i s/^#baseurl/baseurl/g /etc/yum.repos.d/CentOS-Base.repo
      sed -i s/^mirror/#mirror/g /etc/yum.repos.d/CentOS-Base.repo
-     sed -i s+mirror.centos.org+192.168.1.15/pub+g /etc/yum.repos.d/CentOS-Base.repo
+     sed -i s+mirror.centos.org+192.168.1.199/pub+g /etc/yum.repos.d/CentOS-Base.repo
      yum install gcc kernel-devel kernel-headers dkms make bzip2 perl -y
      curl -OL http://download.virtualbox.org/virtualbox/5.1.26/VBoxGuestAdditions_5.1.26.iso
      mkdir -p /media/VBoxGuestAdditions
