@@ -64,8 +64,20 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
+  config.vm.provision "shell", inline: <<-SHELL
+     sed -i s/^#baseurl/baseurl/g /etc/yum.repos.d/CentOS-Base.repo
+     sed -i s/^mirror/#mirror/g /etc/yum.repos.d/CentOS-Base.repo
+     sed -i s+mirror.centos.org+192.168.1.15/pub+g /etc/yum.repos.d/CentOS-Base.repo
+     yum install gcc kernel-devel kernel-headers dkms make bzip2 perl -y
+     curl -OL http://download.virtualbox.org/virtualbox/5.1.26/VBoxGuestAdditions_5.1.26.iso
+     mkdir -p /media/VBoxGuestAdditions
+     mount -o loop,ro VBoxGuestAdditions_5.1.26.iso /media/VBoxGuestAdditions
+     sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
+     rm VBoxGuestAdditions_5.1.26.iso
+     umount /media/VBoxGuestAdditions
+     rmdir /media/VBoxGuestAdditions
+     yum clean all
+     dd if=/dev/zero of=/EMPTY bs=1M
+     rm -f /EMPTY
+  SHELL
 end
