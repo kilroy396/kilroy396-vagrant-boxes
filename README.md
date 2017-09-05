@@ -15,3 +15,5 @@
 vagrant package --output kilroy396-centos7.box
 
 6. upload the image to Vagrant Cloud
+
+aside: this is a good example of a .gitignore file in action
