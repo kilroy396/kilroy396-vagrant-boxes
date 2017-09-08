@@ -1,4 +1,4 @@
-## This reoi was used to create the vagrant images that are found at https://app.vagrantup.com/kilroy396
+## This repo was used to create the vagrant images that are found at https://app.vagrantup.com/kilroy396
 
 *This repo is used to build either CentOS or Fedora vagrant boxes from the centos/7 and fedora/26-cloud-base images on Vagrant Cloud.  The build localise the repo source, and installs the VirtualBox Guest Extensions.  In the case of CentOS, it also enables the epel-release package and localises the repositories source.*
 
