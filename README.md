@@ -7,10 +7,12 @@ To use the repo, undertake the following steps:
 
 2. Verify the correct local repo settings.
 
-3. Ensure that you have installed the vagrant-reload plugin installed.    Otherwise: `vagrant plugin install vagrant-reload`.  This is used incase we have a mismatch between the active kernel and the kernel headers.  It just depends on where we are at with the initial box images and the state of play for updates.
+3. If you are using the virtualbox provier, ensure that you have installed the vagrant-reload plugin installed.   If you are building for vmware then you can ignore this step.  If you need the plug in; `vagrant plugin install vagrant-reload`.
+
+This is used to avoid the situation where we install Virtualbox Guest Additon and we have a mismatch between the active kernel and the kernel headers.  It just depends on the initial box images and the state of play for updates.
 
 4. Use the Vagrant file to start either a Centos or Fedora virtualbox machine, with an appropriate provier e.g. `vagrant up vmware-centos --provider vmware_fusion` to create the target box.
 
-6. Run the appropriate vagrant packaging to command for your operating system and provier e.g. `vagrant package virtualbox-centos --output someones-centos7.box`
+6. After the box is running, without errors in the `vagrant up`, use the appropriate vagrant packaging command for your operating system and provier e.g. `vagrant package virtualbox-centos --output someones-centos7.box`
 
-7. upload the image to Vagrant Cloud, or use it locally via `vagrant box add someones-centos7 someones-centos7.box`
+7. Upload the image to Vagrant Cloud, or use it locally via `vagrant box add someones-centos7 someones-centos7.box`
