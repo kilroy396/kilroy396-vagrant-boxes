@@ -16,3 +16,7 @@ This is used to avoid the situation where we install Virtualbox Guest Additon an
 6. After the box is running, without errors in the `vagrant up`, use the appropriate vagrant packaging command for your operating system and provier e.g. `vagrant package virtualbox-centos --output someones-centos7.box`
 
 7. Upload the image to Vagrant Cloud, or use it locally via `vagrant box add someones-centos7 someones-centos7.box`
+
+Do not enable the /vagrant directory to be mapped.. it can result in a very large disk image.
+
+If disk image size goes wayward, run `du -kscxh *` 

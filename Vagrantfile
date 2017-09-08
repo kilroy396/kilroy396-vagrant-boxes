@@ -6,6 +6,7 @@ unless Vagrant.has_plugin?("vagrant-reload")
 end
 
 Vagrant.configure("2") do |config|
+  config.vm.synced_folder ".", "/vagrant", disabled: true
 
   config.vm.provider :vmare_fusion do |vmware|
     vmware.vmx["ethernet0.pcislotnumber"] = "32"
