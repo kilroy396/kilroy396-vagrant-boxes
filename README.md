@@ -19,4 +19,4 @@ This is used to avoid the situation where we install Virtualbox Guest Additon an
 
 Do not enable the /vagrant directory to be mapped.. it can result in a very large disk image.
 
-If disk image size goes wayward, run `du -kscxh *` 
+If disk image size goes wayward, run `du -kscxh *` or install ncdu. 

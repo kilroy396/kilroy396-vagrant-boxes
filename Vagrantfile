@@ -24,6 +24,7 @@ Vagrant.configure("2") do |config|
        sed -i s/^#baseurl/baseurl/g /etc/yum.repos.d/epel.repo
        sed -i s/^mirror/#mirror/g /etc/yum.repos.d/epel.repo
        sed -i s+download.fedoraproject.org+192.168.1.15+g /etc/yum.repos.d/epel.repo
+       yum clean all
     SHELL
     node.vm.provision :reload 
     node.vm.provision "shell", inline: <<-SHELL
