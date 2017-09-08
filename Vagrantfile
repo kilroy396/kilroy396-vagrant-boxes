@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 unless Vagrant.has_plugin?("vagrant-reload")
    raise 'vagrant-reload is not installed!'
-   raise 'requires: "vagrant plugin install vagrantp-reload" prior to use'
+   raise 'requires: "vagrant plugin install vagrant-reload" prior to use'
 end
 
 Vagrant.configure("2") do |config|
