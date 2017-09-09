@@ -32,6 +32,8 @@ Vagrant.configure("2") do |config|
        umount /media/VBoxGuestAdditions
        rmdir /media/VBoxGuestAdditions
        yum clean all
+       curl -OL https://github.com/mitchellh/vagrant/blob/master/keys/vagrant.pub -O /home/vagrant/.ssh/authorized_keys
+       chmod 0600 /home/vagrant/.ssh/authorized_keys
        dd if=/dev/zero of=/EMPTY bs=1M
        rm -f /EMPTY
      SHELL
@@ -60,6 +62,8 @@ Vagrant.configure("2") do |config|
       umount /media/VBoxGuestAdditions
       rmdir /media/VBoxGuestAdditions
       dnf clean all
+      curl -OL https://github.com/mitchellh/vagrant/blob/master/keys/vagrant.pub -O /home/vagrant/.ssh/authorized_keys
+      chmod 0600 /home/vagrant/.ssh/authorized_keys
       dd if=/dev/zero of=/EMPTY bs=1M
       rm -f /EMPTY
      SHELL
