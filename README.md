@@ -11,12 +11,10 @@ To use the repo, undertake the following steps:
 
 This is used to avoid the situation where we install Virtualbox Guest Additon and we have a mismatch between the active kernel and the kernel headers.  It just depends on the initial box images and the state of play for updates.
 
-4. Use the Vagrant file to start either a Centos or Fedora virtualbox machine, with an appropriate provier e.g. `vagrant up vmware-centos --provider vmware_fusion` to create the target box.
+4. Use the Vagrant file to start either a Centos or Fedora virtualbox machine (it will default to the virtualbox provier) e.g. `vagrant up centos` to create the target box.
 
-6. After the box is running, without errors in the `vagrant up`, use the appropriate vagrant packaging command for your operating system and provier e.g. `vagrant package virtualbox-centos --output someones-centos7.box`
+6. After the box is running, without errors, use the appropriate vagrant packaging command for your operating system and provier e.g. `vagrant package centos --output someones-centos7.box`
 
 7. Upload the image to Vagrant Cloud, or use it locally via `vagrant box add someones-centos7 someones-centos7.box`
-
-Do not enable the /vagrant directory to be mapped.. it can result in a very large disk image.
 
 If disk image size goes wayward, run `du -kscxh *` or install ncdu. 

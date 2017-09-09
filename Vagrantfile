@@ -7,6 +7,8 @@ end
 
 Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.ssh.insert_key = false
+  config.vm.provider "virtualbox"
 
   config.vm.define "centos" do |node|
     node.vm.box = "centos/7"
@@ -32,8 +34,9 @@ Vagrant.configure("2") do |config|
        umount /media/VBoxGuestAdditions
        rmdir /media/VBoxGuestAdditions
        yum clean all
-       curl -L https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub > /home/vagrant/.ssh/authorized_keys
-       chmod 0600 /home/vagrant/.ssh/authorized_keys
+       #curl -L https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub > /home/vagrant/.ssh/authorized_keys
+       #chmod 0600 /home/vagrant/.ssh/authorized_keys
+       #chown -R vagrant /home/vagrant/.ssh
        dd if=/dev/zero of=/EMPTY bs=1M
        rm -f /EMPTY
      SHELL
@@ -62,8 +65,9 @@ Vagrant.configure("2") do |config|
       umount /media/VBoxGuestAdditions
       rmdir /media/VBoxGuestAdditions
       dnf clean all
-      curl -L https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub > /home/vagrant/.ssh/authorized_keys
-      chmod 0600 /home/vagrant/.ssh/authorized_keys
+      #curl -L https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub > /home/vagrant/.ssh/authorized_keys
+      #chmod 0600 /home/vagrant/.ssh/authorized_keys
+      #chown -R vagrant /home/vagrant/.ssh
       dd if=/dev/zero of=/EMPTY bs=1M
       rm -f /EMPTY
      SHELL
