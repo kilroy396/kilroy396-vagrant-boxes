@@ -7,9 +7,7 @@ To use the repo, undertake the following steps:
 
 2. Verify the correct local repo settings.
 
-3. If you are using the virtualbox provier, ensure that you have installed the vagrant-reload plugin installed.   If you are building for vmware then you can ignore this step.  If you need the plug in; `vagrant plugin install vagrant-reload`.
-
-This is used to avoid the situation where we install Virtualbox Guest Additon and we have a mismatch between the active kernel and the kernel headers.  It just depends on the initial box images and the state of play for updates.
+3. If you are using the virtualbox provier, ensure that you have installed the vagrant-reload plugin installed.  If you need the plug in; `vagrant plugin install vagrant-reload`.  The plugin is used to avoid the situation where we install Virtualbox Guest Additon and we have a mismatch between the active kernel and the kernel headers.  It just depends on the initial box images and the state of play for updates.  A reload ensures we shouldn't encounter a mismatch.
 
 4. Use the Vagrant file to start either a Centos or Fedora virtualbox machine (it will default to the virtualbox provier) e.g. `vagrant up centos` to create the target box.
 
@@ -17,4 +15,4 @@ This is used to avoid the situation where we install Virtualbox Guest Additon an
 
 7. Upload the image to Vagrant Cloud, or use it locally via `vagrant box add someones-centos7 someones-centos7.box`
 
-If disk image size goes wayward, run `du -kscxh *` or install ncdu. 
+If disk image size goes wayward, run `du -kscxh *` or install ncdu.  You can then investigate which components are contributing to the image size.
