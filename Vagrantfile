@@ -25,11 +25,11 @@ Vagrant.configure("2") do |config|
     SHELL
     node.vm.provision :reload 
     node.vm.provision "shell", inline: <<-SHELL
-       curl -OL http://download.virtualbox.org/virtualbox/5.1.26/VBoxGuestAdditions_5.1.26.iso
+       curl -OL http://download.virtualbox.org/virtualbox/5.1.28/VBoxGuestAdditions_5.1.28.iso
        mkdir -p /media/VBoxGuestAdditions
-       mount -o loop,ro VBoxGuestAdditions_5.1.26.iso /media/VBoxGuestAdditions
+       mount -o loop,ro VBoxGuestAdditions_5.1.28.iso /media/VBoxGuestAdditions
        sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
-       rm VBoxGuestAdditions_5.1.26.iso
+       rm VBoxGuestAdditions_5.1.28.iso
        umount /media/VBoxGuestAdditions
        rmdir /media/VBoxGuestAdditions
        yum clean all
@@ -56,11 +56,11 @@ Vagrant.configure("2") do |config|
     SHELL
     node.vm.provision :reload 
     node.vm.provision "shell", inline: <<-SHELL
-      curl -OL http://download.virtualbox.org/virtualbox/5.1.26/VBoxGuestAdditions_5.1.26.iso
+      curl -OL http://download.virtualbox.org/virtualbox/5.1.28/VBoxGuestAdditions_5.1.28.iso
       mkdir -p /media/VBoxGuestAdditions
-      mount -o loop,ro VBoxGuestAdditions_5.1.26.iso /media/VBoxGuestAdditions
+      mount -o loop,ro VBoxGuestAdditions_5.1.28.iso /media/VBoxGuestAdditions
       sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
-      rm VBoxGuestAdditions_5.1.26.iso
+      rm VBoxGuestAdditions_5.1.28.iso
       umount /media/VBoxGuestAdditions
       rmdir /media/VBoxGuestAdditions
       dnf clean all
